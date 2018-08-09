@@ -17,19 +17,19 @@ due to the spatial locality preserved in the latent states.
 
 	- Manipulation on the spatial grids
 	
-![Manipulation](imgs/manipulation.png)
+	![Manipulation](imgs/manipulation.png)
  
 	- Manipulation on the channels
 
-![Deactivation](imgs/deactivation.png)
+	![Deactivation](imgs/deactivation.png)
 
 	- Interpretation on the internal dynamics
 
-![Dynamics](imgs/dynamics.png)
+	![Dynamics](imgs/dynamics.png)
 
 	- Interpretation on the word-channel associations
 
-![Associations](imgs/associations.png)
+	![Associations](imgs/associations.png)
 
 ## Citation
 
