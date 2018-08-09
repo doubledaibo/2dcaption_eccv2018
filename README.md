@@ -10,6 +10,7 @@
 due to the spatial locality preserved in the latent states.
 
 - Quantitatively, with similar numbers of parameters, RNN-2DS (i.e. 2D states without gate functions) already outperforms LSTM-1DS (i.e. 1D states with LSTM cells).
+(Green: RNN-2DS, Red: LSTM-1DS)
 
 ![Curve](imgs/curve.png)
 
