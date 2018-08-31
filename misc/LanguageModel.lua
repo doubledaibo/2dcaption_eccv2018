@@ -528,7 +528,7 @@ function layer:sample_beam_sprange(inputs, opt)
 				state = out
 				fakeh = out:clone()
 			end
-			local meanh = torch.mean(fakeh[{{}, {}, {y_start, y_end}, {x_start, x_end}}]:view(beam_size, self.rnn_channel_size, -1))
+			local meanh = torch.mean(fakeh[{{}, {}, {y_start, y_end}, {x_start, x_end}}]:contiguous():view(beam_size, self.rnn_channel_size, -1), 3)
 			fakeh:copy(torch.repeatTensor(meanh, 1, 1, fakeh:size(3) * fakeh:size(4)):view(fakeh:size(1), fakeh:size(2), fakeh:size(3), fakeh:size(4)))
 			logprobs = self.logit:forward(fakeh) 
 		end
@@ -670,7 +670,8 @@ function layer:sample_beam_deactivate(inputs, opt)
 				end
 				logprobs = self.logit:forward(out[1])
 			else
-				state = out[{{}, {c_del, c_del}, {}, {}}]:zero()
+				out[{{}, {c_del, c_del}, {}, {}}]:zero()
+				state = out
 				logprobs = self.logit:forward(out)
 			end
 		end
